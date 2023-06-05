@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nodejsimage
+    ports:
+      - 3000:3000
+    volumes:
+      - /container/local:/workspaces
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:latest
+    volumes:
+      - /container/database:/workspaces/todos
+    environment: 
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: todos
+
+volumes:
+  todo-mysql-data:

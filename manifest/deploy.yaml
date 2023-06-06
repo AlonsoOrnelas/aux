@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: nodejsapp-deployment
+
+  labels:
+
+    app: nodejsapp
+
+spec:
+
+  replicas: 3
+
+  selector:
+
+    matchLabels:
+
+      app: nodejsapp
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: nodejsapp
+
+    spec:
+
+      containers:
+
+      - name: nodejsapp
+
+        image: alonsoornelas/nodejsimage:1.0
+
+        ports:
+
+        - containerPort: 3000
+
+        imagePullPolicy: IfNotPresent

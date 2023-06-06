@@ -12,3 +12,4 @@ COPY app/src ./src
 #ejecutamos el proyecto
 CMD node src/index.js
 EXPOSE 3000
+VOLUME /workspaces
